@@ -1,8 +1,6 @@
 import { Button } from "antd";
-// import { CheckCircleTwoTone } from "@ant-design/icons";
 import React from "react";
 import { CustomCollapse } from "../../components/CustomCollapse";
-
 import { CustomButton } from "../../components/CustomButton";
 import "./Home.less";
 import { faq } from "../../data";
@@ -13,7 +11,6 @@ import Group826 from "../../images/Group 826.png";
 import price from "../../images/Group 827.png";
 import violet from "../../images/Group 828.png";
 import feedback from "../../images/Group 829.png";
-
 import Group830 from "../../images/Group 830.png";
 
 export const Home = () => {
@@ -86,17 +83,19 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* {faq section } */}
+      {/* faq section */}
       <section className="faq-section">
         <div className="container">
-          <p className="sub-title"> Solution to Your Problems</p>
-          <h2>Do you have any Questions</h2>
+          <p className="sub-title">Solutions to Your Problems</p>
+          <h2 className="solition">Do You Have any Questions?</h2>
           <p>
-            Take a look through our answers! Still, have questions? Please don't
-            be afraid to contact our team at any time.
+            Take a look through our answers! Still, have questions? <br />{" "}
+            Please don't be afraid to contact our team at any time.
           </p>
-          <div style={{ display: "flex" }}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+
+          <div className="collapse-block">
+            <div className="sidebar">
+              <h3>Table of Contents</h3>
               {faq.map((el, id) => {
                 return (
                   <Link key={id} to={`/${el.title}`}>
@@ -105,11 +104,12 @@ export const Home = () => {
                 );
               })}
             </div>
-            <div className="list">
+
+            <div className="collapse">
               <Switch>
                 {faq.map((el, id) => {
                   return (
-                    <Route key={id} path={`/${el.title}`}>
+                    <Route path={`/${el.title}`} key={id}>
                       <CustomCollapse el={el} />
                     </Route>
                   );
